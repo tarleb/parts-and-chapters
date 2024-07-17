@@ -52,7 +52,7 @@ Example
 Let's use the following structure as an example:
 
 ``` markdown
-# Part I
+# Part I {-}
 
 ## First chapter
 
@@ -60,7 +60,7 @@ Let's use the following structure as an example:
 
 ## Second chapter
 
-# Part II
+# Part II {-}
 
 ## Third chapter
 
