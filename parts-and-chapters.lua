@@ -1,6 +1,3 @@
---- This filter numbers second-level headings as chapters, and treats
--- first-level headings as "parts".
-
 --- Fix numbering when using parts
 --
 -- This filter numbers second-level headings as chapters, and treats
