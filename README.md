@@ -19,3 +19,29 @@ as described above when pandoc is called with the additional
 
 However, this no such option exists for HTML and similar formats,
 and this is where this filter is useful.
+
+Usage
+-----
+
+Call pandoc with
+
+``` sh
+pandoc --lua-filter=parts-and-chapters.lua --number-sections …
+```
+
+Remember that, if you don't want parts to be numbered, numbering
+of specific headings can be disabled by adding the `unnumbered`
+class, .e.g.,
+
+``` markdown
+# Part I {.unnumbered}
+
+## Chapter one
+```
+
+Pandoc Markdown supports a special syntax, allowing to use `{-}`
+to the same effect:
+
+``` markdown
+# Part I {-}
+```
