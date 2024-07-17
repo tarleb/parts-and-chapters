@@ -12,6 +12,7 @@
 PANDOC_VERSION:must_be_at_least '3.0'  -- We need pandoc.structure
 
 local struct = require 'pandoc.structure'
+local utils  = require 'pandoc.utils'
 
 local chapter_number = 0
 
@@ -19,20 +20,12 @@ local fix_number = function (num)
   if not num then
     return nil
   end
-  return num:gsub('^%d+%.%d+', tostring(chapter_number))
+  return num
+    :gsub('^%d+$', utils.to_roman_numeral)       -- roman numerals for parts
+    :gsub('^%d+%.%d+', tostring(chapter_number))
 end
 
 function Pandoc (doc)
-  -- Ensure that top-level headings (i.e., parts) remain unnumbered
-  doc.blocks = doc.blocks:walk {
-    Header = function (hdr)
-      if hdr.level == 1 then
-        hdr.classes:insert 'unnumbered'
-        return hdr
-      end
-    end
-  }
-
   -- Create numbered sections
   doc.blocks = struct.make_sections(doc.blocks, {number_sections=true})
 
