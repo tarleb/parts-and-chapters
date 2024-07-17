@@ -45,3 +45,45 @@ to the same effect:
 ``` markdown
 # Part I {-}
 ```
+
+Example
+-------
+
+Let's use the following structure as an example:
+
+``` markdown
+# Part I
+
+## First chapter
+
+### Subsection
+
+## Second chapter
+
+# Part II
+
+## Third chapter
+
+### Some details
+```
+
+By default, i.e., without the filter, producing a TOC from
+this document yields
+
+> -   1 Part I
+>     -   1.1 First chapter
+>         -   1.1.1 Subsection
+>     -   1.2 Second chapter
+> -   2 Part II
+>     -   2.1 Third chapter
+>         -   2.1.1 Some details
+
+Using this filter the TOC becomes
+
+> -   Part I
+>     -   1 First chapter
+>         -   1.1 Subsection
+>     -   2 Second chapter
+> -   Part II
+>     -   3 Third chapter
+>         -   3.1 Some details
